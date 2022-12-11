@@ -30,13 +30,13 @@
 //#define ANYCUBIC_KOSSEL_PLUS
 
 // Anycubic Probe version 1 or 2 see README.md; 0 for no probe
-#define ANYCUBIC_PROBE_VERSION 0
+#define ANYCUBIC_PROBE_VERSION 2
 
 // Heated Bed:
 // 0 ... no heated bed
 // 1 ... aluminium heated bed with "BuildTak-like" sticker
 // 2 ... ultrabase heated bed
-#define ANYCUBIC_KOSSEL_ENABLE_BED 0
+#define ANYCUBIC_KOSSEL_ENABLE_BED 1
 
 /**
  * Configuration.h
@@ -59,19 +59,16 @@
 //===========================================================================
 
 /**
- * Here are some useful links to help get your machine configured and calibrated:
+ * Here are some standard links for getting your machine calibrated:
  *
- * Example Configs:     https://github.com/MarlinFirmware/Configurations/branches/all
- *
- * Průša Calculator:    https://blog.prusaprinters.org/calculator_3416/
- *
- * Calibration Guides:  https://reprap.org/wiki/Calibration
- *                      https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
- *                      https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
- *                      https://youtu.be/wAL9d7FgInk
- *
- * Calibration Objects: https://www.thingiverse.com/thing:5573
- *                      https://www.thingiverse.com/thing:1278865
+ * http://www.lpomykal.cz/3d-printers/kossel/
+ * http://reprap.org/wiki/Calibration
+ * http://youtu.be/wAL9d7FgInk
+ * http://calculator.josefprusa.cz
+ * http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
+ * http://www.thingiverse.com/thing:5573
+ * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
+ * http://www.thingiverse.com/thing:298812
  */
 
 // @section info
@@ -128,7 +125,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -152,11 +149,13 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "ANYCUBIC Kossel"
+// #define CUSTOM_MACHINE_NAME "KLP LPomykal.cz"
+#define CUSTOM_MACHINE_NAME "farwawaylabs.space"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
 //#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+#define MACHINE_UUID "da77857d-787f-41df-8abc-7ff6045b5cd1"
 
 /**
  * Stepper Drivers
@@ -914,7 +913,7 @@
   #define DELTA_SEGMENTS_PER_SECOND 80
 
   // After homing move down to a height where XY movement is unconstrained
-  #define DELTA_HOME_TO_SAFE_ZONE
+  // #define DELTA_HOME_TO_SAFE_ZONE
 
   // Delta calibration menu
   // uncomment to add three points calibration menu option.
@@ -955,7 +954,8 @@
     #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-(DELTA_EFFECTOR_OFFSET)-(DELTA_CARRIAGE_OFFSET))          // (mm) Get this value from G33 auto calibrate
   #else
     // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-    #define DELTA_PRINTABLE_RADIUS 90.0   // (mm)
+    // #define DELTA_PRINTABLE_RADIUS 90.0   // -10.0mm usually (mm)
+    #define DELTA_PRINTABLE_RADIUS 82.0   // (mm)
     // Maximum reachable area
     #define DELTA_MAX_RADIUS       90.0   // (mm)
     // Center-to-center distance of the holes in the diagonal push rods.
